@@ -3,6 +3,7 @@
 #include "locale"
 #include <string>
 #include "sdt.h"
+#include<windows.h>
 #include <cstring>
 #include <cctype>
 using namespace std;
@@ -171,7 +172,7 @@ int main()
         }
 
         char * pch=strrchr(filename1,'.');
-        if (pch-filename+1 < 0)
+        if (pch-filename1+1 < 0)
             //if (!pch)
         {
             cerr <<"Input file extension!\n";
@@ -205,8 +206,10 @@ int main()
             fclose (ptrFile1);
         } //end of perm1
         free(mas);
-        delete [] proparray;
+        for(int i=0; i<numofprop; ++i)
+        delete [] proparray[i];
         fclose (ptrFile1);
+
 
     } //end of perm
 }
