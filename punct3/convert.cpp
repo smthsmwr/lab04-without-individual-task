@@ -1,6 +1,6 @@
 #include "sdt.h"
 #include "convert1.h"
-char convert_in_hex(uint16_t x)
+char convert_in_hex(uint8_t x)
 {
     switch (x)
     {
@@ -54,45 +54,34 @@ char convert_in_hex(uint16_t x)
         break;
     }
 }
-
-void print_in_hex1(uint16_t byte)
+void print_in_hex1(uint8_t byte)
 {
-    char x1=' ';
-    char x2=' ';
-    char x3=' ';
-    char x4=' ';
-    uint16_t byte4=(byte&0b0000000000001111);
-    x4=convert_in_hex(byte4);
+    char x,x1;
+    uint8_t byte1=(byte&0b11110000)>>4;
+    x=convert_in_hex(byte1);
 
-    uint16_t byte3=(byte&0b0000000011110000)>>4;
-    x3=convert_in_hex(byte3);
-
-    uint16_t byte2=(byte&0b0000111100000000)>>8;
-    x2=convert_in_hex(byte2);
-
-    uint16_t byte1=(byte&0b1111000000000000)>>16;
-    x1=convert_in_hex(byte1);
-    cout <<x1<<x2<<x3<<x4;
+    uint8_t byte2=byte&0b00001111;
+    x1=convert_in_hex(byte2);
+    cout << /*"Your num in hex: " <<*/x<<x1;
 }
 
 void print_in_hex(const void* data, size_t size)
 {
-    const uint16_t* data1=reinterpret_cast<const uint16_t*>(data);
+    const uint8_t* data1=reinterpret_cast<const uint8_t*>(data);
     for(int i=0; i<size; ++i)
     {
         print_in_hex1(data1[i]);
-        cout << ' ';
+        cout <<' ';
     }
 
-
 }
-void print_in_binary1(uint16_t byte)
+void print_in_binary1(uint8_t byte)
 {
     char x;
-    for(int i=15; i>-1; --i)
+    for(int i=7; i>-1; --i)
 
     {
-        uint16_t byte1=(byte&((0b1000000000000000)>>(15-i)))>>i;
+        uint8_t byte1=(byte&((0b10000000)>>(7-i)))>>i;
         switch (byte1)
         {
         case 1:
@@ -109,10 +98,10 @@ void print_in_binary1(uint16_t byte)
 
 void print_in_binary(const void* data, size_t size)
 {
-    const uint16_t* data1=reinterpret_cast<const uint16_t*>(data);
+    const uint8_t* data1=reinterpret_cast<const uint8_t*>(data);
     for(int i=0; i<size; ++i)
     {
         print_in_binary1(data1[i]);
-        cout << ' ';
+        cout <<' ';
     }
 }

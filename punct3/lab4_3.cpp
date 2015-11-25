@@ -29,54 +29,55 @@ main()
     {
         cout<<i+1<<": \t"<<&studarray[i]<<"\t\t"<<sizeof(studarray[i])<<"\n";
     }
-    cout<<"\nFOR FIRST ELEMENT OF ARRAY:\n";
+    cout<<"\nFOR FIRST [0] ELEMENT OF ARRAY:\n";
     cout <<"\t     Adress of field:"<<"\tSize of field:"<<"\tOffset:\n";
-    cout <<"NAME: \t\t"<<&studarray[1].name<<"\t\t"<<sizeof(studarray[1].name)<<"\t"<<offsetof(struct Student,name)<<"\n";
-    cout <<"YEAR: \t\t"<<&studarray[1].year<<"\t\t"<<sizeof(studarray[1].year)<<"\t"<<offsetof(struct Student,year)<<"\n";
-    cout <<"GPA: \t\t"<<&studarray[1].GPA<<"\t\t"<<sizeof(studarray[1].GPA)<<"\t"<<offsetof(struct Student,GPA)<<"\n";
-    cout <<"CLASS: \t\t"<<&studarray[1].class1<<"\t\t"<<sizeof(studarray[1].class1)<<"\t"<<offsetof(struct Student,class1)<<"\n";
-    cout <<"STAROSTA: \t"<<&studarray[1].starosta<<"\t\t"<<sizeof(studarray[1].starosta)<<"\t"<<offsetof(struct Student,starosta)<<"\n";
+    cout <<"NAME: \t\t"<<&studarray[0].name<<"\t\t"<<sizeof(studarray[0].name)<<"\t"<<offsetof(struct Student,name)<<"\n";
+    cout <<"YEAR: \t\t"<<&studarray[0].year<<"\t\t"<<sizeof(studarray[0].year)<<"\t"<<offsetof(struct Student,year)<<"\n";
+    cout <<"GPA: \t\t"<<&studarray[0].GPA<<"\t\t"<<sizeof(studarray[0].GPA)<<"\t"<<offsetof(struct Student,GPA)<<"\n";
+    cout <<"CLASS: \t\t"<<&studarray[0].class1<<"\t\t"<<sizeof(studarray[0].class1)<<"\t"<<offsetof(struct Student,class1)<<"\n";
+    cout <<"STAROSTA: \t"<<&studarray[0].starosta<<"\t\t"<<sizeof(studarray[0].starosta)<<"\t"<<offsetof(struct Student,starosta)<<"\n";
     cout<<"\n";
     cout <<"NAME: \t\t\n";
     cout <<"Binary: ";
-    print_in_binary(&studarray[2].name,sizeof(studarray[2].name));
+    print_in_binary(&studarray[0].name,sizeof(studarray[0].name));
     cout<<"\n";
     cout<<"Hex: ";
-    print_in_hex(&studarray[2].name,sizeof(studarray[2].name));
+    print_in_hex(&studarray[0].name,sizeof(studarray[0].name));
     cout<<"\n\n";
     cout <<"YEAR:\n";
     cout <<"Binary: ";
-    print_in_binary(&studarray[2].year,sizeof(studarray[21].year));
+    print_in_binary(&studarray[0].year,sizeof(studarray[0].year));
     cout<<"\n";
     cout<<"Hex: ";
-    print_in_hex(&studarray[2].year,sizeof(studarray[2].year));
+    print_in_hex(&studarray[0].year,sizeof(studarray[0].year));
     cout<<"\n\n";
     cout <<"GPA:\n";
     cout <<"Binary: ";
-    print_in_binary(&studarray[2].GPA,sizeof(studarray[2].GPA));
+    print_in_binary(&studarray[0].GPA,sizeof(studarray[0].GPA));
     cout<<"\t";
     cout<<"Hex: ";
-    print_in_hex(&studarray[2].GPA,sizeof(studarray[2].GPA));
+    print_in_hex(&studarray[0].GPA,sizeof(studarray[0].GPA));
     cout<<"\n\n";
-    cout <<"CLASS: \t\t";
+    cout <<"CLASS: \n";
     cout <<"Binary: ";
-    print_in_binary(&studarray[2].class1,sizeof(studarray[2].class1));
+    print_in_binary(&studarray[0].class1,sizeof(studarray[0].class1));
     cout<<"\n";
     cout<<"Hex: ";
-    print_in_hex(&studarray[2].class1,sizeof(studarray[2].class1));
+    print_in_hex(&studarray[0].class1,sizeof(studarray[0].class1));
     cout<<"\n\n";
     cout <<"STAROSTA: \n";
     cout <<"Binary: ";
-    print_in_binary(&studarray[2].starosta,sizeof(studarray[2].starosta));
+    print_in_binary(&studarray[0].starosta,sizeof(studarray[0].starosta));
     cout<<"\n";
     cout<<"Hex: ";
-    print_in_hex(&studarray[2].starosta,sizeof(studarray[2].starosta));
+    print_in_hex(&studarray[0].starosta,sizeof(studarray[0].starosta));
     cout<<"\n\n";
     cout <<"Elements of array in hex:\n";
     for(int i=0; i<3; ++i)
     {
         cout<<i+1<<": ";
         print_in_hex(&studarray[i],sizeof(studarray[i]));
+
         cout<<"\n\n\n";
     }
 
